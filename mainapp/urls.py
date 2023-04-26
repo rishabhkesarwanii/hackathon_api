@@ -13,6 +13,9 @@ from .views import (
     HackathonListSubmissionView,
     )
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     
     path('register/', RegisterAPI.as_view()),
@@ -31,3 +34,5 @@ urlpatterns = [
 
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

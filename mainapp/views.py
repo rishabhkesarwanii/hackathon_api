@@ -55,7 +55,7 @@ class HackathonListView(APIView):
     permission_classes = (permissions.IsAuthenticated,) #Only authenticated users can view this page
     def get(self, request):
         hackathons = Hackathon.objects.all() #Get all the hackathons
-        serializer = HackathonSerializer(hackathons, many=True) #Serialize the hackathons
+        serializer = HackathonSerializer(hackathons, many=True, context={'request': request}) #Serialize the hackathons
         return Response({"hackathons": serializer.data})
     
 
@@ -65,7 +65,7 @@ class HackathonListOneView(APIView):
     permission_classes = (permissions.IsAuthenticated,) #Only authenticated users can view this page
     def get(self, request, pk):
         hackathon = get_object_or_404(Hackathon, id=pk) #Get the hackathon with the id=pk(primary key)
-        serializer = HackathonSerializer(hackathon) #Serialize the hackathon
+        serializer = HackathonSerializer(hackathon,  context={'request': request}) #Serialize the hackathon
         return Response(serializer.data)
 
 
@@ -81,7 +81,7 @@ class HackathonCreateView(generics.CreateAPIView):
             hackathon_saved = form.save(commit=False) #Save the data but don't commit it to the database
             hackathon_saved.user_profile = user #Set the user_profile to the user that is logged in
             hackathon_saved.save() #Save the data to the database
-            serializer = HackathonSerializer(hackathon_saved) #Serialize the data
+            serializer = HackathonSerializer(hackathon_saved,  context={'request': request}) #Serialize the data
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -110,7 +110,7 @@ class HackathonUpdateView(generics.UpdateAPIView):
                 return Response({"error": "Hackathon has already started. You cannot edit type  of submission."}, status=status.HTTP_403_FORBIDDEN) #Return an error if the hackathon has already started
             hackathon_saved.user_profile = user #Set the user_profile to the user that is logged in
             hackathon_saved.save() #Save the data to the database
-            serializer = HackathonSerializer(hackathon_saved) #Serialize the data
+            serializer = HackathonSerializer(hackathon_saved,  context={'request': request}) #Serialize the data
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -157,7 +157,7 @@ class HackathonSubmissionView(APIView):
         user_profile = request.user.userprofile #Get the user profile of the user
         hackathon = get_object_or_404(Hackathon, pk=pk) #Get the hackathon with the id
         submissions = RegisterHackathon.objects.filter(user_profile=user_profile, hackathon=hackathon) #Get all the submissions of the user to the particular hackathon
-        serializer = self.serializer_class(submissions, many=True) #Serialize the data
+        serializer = self.serializer_class(submissions, many=True,  context={'request': request}) #Serialize the data
         return Response(serializer.data)
     
     def post(self, request, pk):
@@ -171,7 +171,7 @@ class HackathonSubmissionView(APIView):
         
         if form.is_valid():
             check = form.save(commit=False) #Save the data but don't commit it to the database
-            serializer = self.serializer_class(register_hackathon) #Serialize the data
+            serializer = self.serializer_class(register_hackathon, context={'request': request}) #Serialize the data
 
             if register_hackathon.is_submitted: #Check if the user has already submitted
                 return Response({"error": "Hackathon has already been submitted."}, status=status.HTTP_400_BAD_REQUEST) #Return an error if the user has already submitted
@@ -201,5 +201,5 @@ class HackathonListSubmissionView(APIView):
         def get(self, request):
             user_profile = request.user.userprofile #Get the user profile of the user
             submissions = RegisterHackathon.objects.filter(user_profile=user_profile) #Get all the submissions of the user 
-            serializer = self.serializer_class(submissions, many=True) #Serialize the data
+            serializer = self.serializer_class(submissions, many=True,  context={'request': request}) #Serialize the data
             return Response(serializer.data)

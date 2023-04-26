@@ -29,16 +29,19 @@ class RegisterSerializer(serializers.ModelSerializer): #ModelSerializer for the 
 
 # Hackathon Serializer -> show  hackathon details
 class HackathonSerializer(serializers.ModelSerializer):
+    # hackathon_image = serializers.SerializerMethodField('get_hackathon_image') #get the hackathon image 
     class Meta:
         model = Hackathon
         fields = ('id', 'title', 'description', 'background_image', 'hackathon_image', 'type_of_submission',
                 'start_datetime', 'end_datetime', 'reward_prize', 'last_updated') 
         read_only_fields = ('id',) #fields that will be returned in the response and cannot be edited
 
+    
     def validate(self, data):
         if data['end_datetime'] <= data['start_datetime']: #check if the end datetime is after the start datetime
             raise serializers.ValidationError("End datetime must be after start datetime.")
         return data
+
 
 
 class HackathonSubmissionSerializer(serializers.ModelSerializer): #ModelSerializer for the RegisterHackathon model

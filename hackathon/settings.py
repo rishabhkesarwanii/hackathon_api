@@ -26,7 +26,7 @@ SECRET_KEY = 'django-hello-+r9ykd9e2+fjms!z_r82jl^v$=0*vbu=&*cx&3$h1bx_h0chof'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -141,3 +141,6 @@ REST_FRAMEWORK = { #
         'knox.auth.TokenAuthentication', #Knox authentication class that we are using
     ]
 }
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
+MEDIA_URL = '/media/'
