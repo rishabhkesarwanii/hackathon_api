@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #django apps
     'mainapp',
 
+    #third party apps
     'rest_framework',
     'knox',
 ]
@@ -131,10 +132,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # AUTH_USER_MODEL = 'mainapp.User'
 
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK = { #
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
-        'knox.auth.TokenAuthentication',
+        'knox.auth.TokenAuthentication', #Knox authentication class that we are using
     ]
 }
