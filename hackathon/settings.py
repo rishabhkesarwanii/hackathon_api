@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #third party apps
     'rest_framework',
     'knox',
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'hackathon.urls'
@@ -123,13 +125,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 
 # AUTH_USER_MODEL = 'mainapp.User'
 
@@ -144,3 +145,11 @@ REST_FRAMEWORK = { #
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
 MEDIA_URL = '/media/'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR/'static'
+]
+
+STATIC_ROOT = 'static_root' 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
