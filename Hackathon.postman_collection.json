@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "772819c5-35da-44da-93e1-5a6e69693e6d",
+		"name": "Hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser1\",\n    \"password\": \"testuser1\",\n    \"email\": \"admina@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/register/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser1\",\n    \"password\": \"testuser1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/login/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Hackathon Management",
+			"item": [
+				{
+					"name": "Create Hackathon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Absolute url",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "final test hacka",
+									"type": "default"
+								},
+								{
+									"key": "background_image",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-53-04.png"
+								},
+								{
+									"key": "hackathon_image",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-50-48.png"
+								},
+								{
+									"key": "type_of_submission",
+									"value": "image",
+									"type": "default"
+								},
+								{
+									"key": "start_datetime",
+									"value": "2023-04-26",
+									"type": "default"
+								},
+								{
+									"key": "end_datetime",
+									"value": "2023-04-28",
+									"type": "default"
+								},
+								{
+									"key": "reward_prize",
+									"value": "17890.00",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/hackathons/create/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hackathons",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Hackathon",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "absolute url tested",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "new test new newDas",
+									"type": "default"
+								},
+								{
+									"key": "background_image",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-53-04.png"
+								},
+								{
+									"key": "hackathon_image",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-14 00-42-55.png"
+								},
+								{
+									"key": "type_of_submission",
+									"value": "image",
+									"type": "default"
+								},
+								{
+									"key": "start_datetime",
+									"value": "2023-04-25",
+									"type": "default"
+								},
+								{
+									"key": "end_datetime",
+									"value": "2023-04-25",
+									"type": "default"
+								},
+								{
+									"key": "reward_prize",
+									"value": "6200.00",
+									"type": "default"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/hackathons/8/update/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"8",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List one Hackathon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/hackathons/8/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hackathons",
+								"8",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Hackathon",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2e557a19774477adb525382d74c06a4b8c2789d658fd154a0c9cd6a99f9f492d",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/home/rishabh/Downloads/peakpx (19).jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/hackathons/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"hackathons",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hackathon Register",
+			"item": [
+				{
+					"name": "Register Hackathon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/hackathons/8/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"8",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registred Hackathon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/hackathons/registered/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"registered",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submission Hackathon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "submission_name",
+									"value": "file sub with bool",
+									"type": "default"
+								},
+								{
+									"key": "submission_summary",
+									"value": "fvidfnvj",
+									"contentType": "",
+									"type": "default"
+								},
+								{
+									"key": "submission_image",
+									"contentType": "",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-55-30.png"
+								},
+								{
+									"key": "submission_link",
+									"value": "www.google.com",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "submission_file",
+									"type": "file",
+									"src": "/home/rishabh/Documents/Resume/Rishabh Kesarwani .pdf",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/hackathons/8/submit/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"8",
+								"submit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List one Submission",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "submission_name",
+									"value": "file sub with bool",
+									"type": "default"
+								},
+								{
+									"key": "submission_summary",
+									"value": "fvidfnvj",
+									"contentType": "",
+									"type": "default"
+								},
+								{
+									"key": "submission_image",
+									"contentType": "",
+									"type": "file",
+									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-55-30.png"
+								},
+								{
+									"key": "submission_link",
+									"value": "www.google.com",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "submission_file",
+									"type": "file",
+									"src": "/home/rishabh/Documents/Resume/Rishabh Kesarwani .pdf",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/hackathons/7/submit/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"7",
+								"submit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Submissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/hackathons/listallsubmssions/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"hackathons",
+								"listallsubmssions",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token {{TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": "110afbd9229308304b82ab93b80a19d1bd7b074181acc728ce90453164033a35",
+			"type": "default"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://209.38.254.178",
+			"type": "default"
+		}
+	]
+}
