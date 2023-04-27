@@ -256,17 +256,9 @@ Create a Virtualenv
   Windows: py -m venv env
 ```
 
-Create a Virtualenv
-```bash
-  Linux/macOS: python3 -m venv env
-
-  Windows: py -m venv env
-```
-
 Start Virtualenv
 ```bash
   Linux/macOS: source env/bin/activate
-
   Windows: .\env\Scripts\activate
 ```
 
