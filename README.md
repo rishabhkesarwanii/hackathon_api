@@ -59,7 +59,7 @@ Python has all kinds of validation tools, but every one of them requires definin
 
 #### Register
 
-```http
+```
   POST /register/
 ```
 
@@ -71,7 +71,7 @@ Python has all kinds of validation tools, but every one of them requires definin
 
 #### Login
 
-```http
+```
   POST /login/
 ```
 
