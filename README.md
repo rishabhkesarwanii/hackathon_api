@@ -329,7 +329,7 @@ Install Virtualenv
 ![Postman Create Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Createhacka.png)
 
 #### Edit Hackathon 
-![Postman Edit Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Edit Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/edithacka.png)
 
 #### List One Hackathon 
 ![Postman List One Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Listonehacka.png)
