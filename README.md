@@ -45,6 +45,14 @@ Knox authentication is token based, similar to the "TokenAuthentication" built i
 
 * DRF tokens track their creation time, but have no inbuilt mechanism for tokens expiring. Knox tokens can have an expiry configured in the app settings (default is 10 hours.)
 
+### WhiteNoise
+
+With a couple of lines of config WhiteNoise allows your web app to serve its own static files, making it a self-contained unit that can be deployed anywhere without relying on nginx, Amazon S3 or any other external service. (Especially useful on Heroku, OpenShift and other PaaS providers.)
+
+### Validators
+Python Data Validation for Humans™.
+Python has all kinds of validation tools, but every one of them requires defining a schema. A simple validation library where validating a simple value does not require defining a form or a schema
+
 
 
 ## API Reference
@@ -58,7 +66,7 @@ Knox authentication is token based, similar to the "TokenAuthentication" built i
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `username`      | `string` | **Required**. Username for Register        |
-| `password`      | `string` | **Required**. Pssword for Register        |
+| `password`      | `string` | **Required**. Password for Register        |
 | `email`      | `string` | **Required**. Email for Register        |
 
 #### Login
@@ -70,7 +78,7 @@ Knox authentication is token based, similar to the "TokenAuthentication" built i
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `username`      | `string` | **Required**. Username for login        |
-| `password`      | `string` | **Required**. Pssword for login        |
+| `password`      | `string` | **Required**. Password for login        |
 
 Output: TOKEN
 ####
@@ -78,8 +86,8 @@ Pass this token in Header of each API request as:
 ####
 Authorization:  token {{TOKEN}}
 
-
-
+####
+At every login or register a new token is generated for the user
 
 
 #### Logout
@@ -114,6 +122,7 @@ Authorization:  token {{TOKEN}}
 | `pk`      | `int` | **Required**. The ID of the hackathon to retrieve      |
 | `Authorization`      | `string` | **Required**. The authentication token for the user making the request      |
 
+FIlter out hackathon on the basis of its primary key
 
 #### Create a Hackathons
 
@@ -133,7 +142,9 @@ Authorization:  token {{TOKEN}}
 | `reward_prize`      | `decimal` | **Required**. The prize money to be awarded to the winners of the hackathon     |
 | `Authorization`      | `string` | **Required**. A valid access token for an authenticated user.  |
 
-
+Lets you create a new hackathon, all fields except Token(Header) should be passed in "Body: form-data"
+#####
+While creating a hackathon user of 3 choices for type_of_submission: Link, image, file
 
 #### Edit a Particular Hackathons
 
@@ -154,6 +165,10 @@ Authorization:  token {{TOKEN}}
 | `reward_prize`      | `decimal` | **Required**. The prize money to be awarded to the winners of the hackathon     |
 | `Authorization`      | `string` | **Required**. The authentication token for the user making the request      |
 
+Lets you Edit a new hackathon all fields except Token(Header) should be passed in "Body: form-data"
+####
+If the hackathon is started you can not change the "type_of_submission". Logic: Compares the current time and start_time if current time > start_time returns error: 403
+
 
 
 #### Register to a Particular Hackathons
@@ -166,6 +181,11 @@ Authorization:  token {{TOKEN}}
 | :-------- | :------- | :-------------------------------- |
 | `pk`      | `int` | **Required**. The ID of the hackathon to retrieve(Only which you have created)     |
 | `Authorization`      | `string` | **Required**. The authentication token for the user making the request      |
+
+
+User can register to a hackathon and user can do so only once
+######
+pk= id which will filter out the hackathon and user will be fetched by Auth Token
 
 #### List all Registered Hackathons
 
@@ -193,7 +213,11 @@ Authorization:  token {{TOKEN}}
 | `submission_file`      | `file` | **Required**. If the hackathon selected submission type is file      |
 | `Authorization`      | `string` | **Required**. The authentication token for the user making the request      |
 
-
+A user can submit their hackathon submission only for which they have registered before, all fields except Token(Header) should be passed in "Body: form-data"
+####
+submission_type(submission_file, submission_image, submission_link) should be same as type_of_submission of that hackathon, else error will be returned
+####
+Once a Submission form is successfully submit(saved) you can not submit again 
 
 #### View Submission for a Particular Hackathons
 
@@ -218,12 +242,32 @@ Authorization:  token {{TOKEN}}
 | `Authorization`      | `string` | **Required**. The authentication token for the user making the request      |
 
 
-## How to run
+## Run Locally
 
 To downlaod this project
 
 ```bash
   git clone repo-link
+```
+
+Create a Virtualenv
+```bash
+  Linux/MacOS: python3 -m venv env
+  Windows: py -m venv env
+```
+
+Create a Virtualenv
+```bash
+  Linux/macOS: python3 -m venv env
+
+  Windows: py -m venv env
+```
+
+Start Virtualenv
+```bash
+  Linux/macOS: source env/bin/activate
+
+  Windows: .\env\Scripts\activate
 ```
 
 Install all the dependencies 
@@ -249,4 +293,72 @@ Runserver Locally
 ```python
   python manage.py runserver
 ```
+
+#### Your server shoud be running Locally!!!
+
+## Postman Collection file
+
+Postman Collections are a group of saved requests. Every request you send in Postman appears under the History tab of the sidebar. On a small scale, reusing requests through the history section is convenient.
+```url
+  url
+```
+
+Import postman collection file in postman from root folder of project or downlaod from above 
+####
+## Other(s)
+
+
+Download python
+
+```https
+  https://www.python.org/downloads/
+```
+
+Install Virtualenv
+
+```https
+  https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+```
+
+## Screenshots
+
+#### Set Authorization token and BASE_RL in POSTMAN
+![Postman Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+![Postman Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Register 
+![Postman Register Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Login 
+![Postman Login Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Create Hackathon 
+![Postman Create Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Edit Hackathon 
+![Postman Edit Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### List One Hackathon 
+![Postman List One Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### List All Hackathon 
+![Postman List All Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Register Hackathon 
+![Postman Register Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Registered Hackathon 
+![Postman Registered Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Registered Hackathon Submission
+![Postman Registered Hackathon Submission Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### List one Submission
+![Postman List one Submission Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Hackathon Submission
+![Postman List All Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
 
