@@ -323,7 +323,7 @@ Install Virtualenv
 ## Screenshots
 
 #### Set Authorization token and BASE_RL in POSTMAN
-![Postman Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/postman%20sc1.png))
+![Postman Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/postman%20sc1.png)
 
 ![Postman Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
