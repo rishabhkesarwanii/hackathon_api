@@ -92,7 +92,7 @@ At every login or register a new token is generated for the user
 
 #### Logout
 
-```http
+```
   POST /logout/
 ```
 
@@ -102,7 +102,7 @@ At every login or register a new token is generated for the user
 
 #### List Hackathons
 
-```http
+```
   GET /hackathons/
 ```
 
@@ -113,7 +113,7 @@ At every login or register a new token is generated for the user
 
 #### List a Particular Hackathons
 
-```http
+```
   GET /hackathons/<int:pk>/
 ```
 
@@ -126,7 +126,7 @@ FIlter out hackathon on the basis of its primary key
 
 #### Create a Hackathons
 
-```http
+```
   POST /hackathons/create/
 ```
 
@@ -148,7 +148,7 @@ While creating a hackathon user of 3 choices for type_of_submission: Link, image
 
 #### Edit a Particular Hackathons
 
-```http
+```
   PUT /hackathons/<int:pk>/update/
 ```
 
@@ -173,7 +173,7 @@ If the hackathon is started you can not change the "type_of_submission". Logic: 
 
 #### Register to a Particular Hackathons
 
-```http
+```
   GET /hackathons/<int:pk>/register/
 ```
 
@@ -189,7 +189,7 @@ pk= id which will filter out the hackathon and user will be fetched by Auth Toke
 
 #### List all Registered Hackathons
 
-```http
+```
   GET /hackathons/registered/
 ```
 
@@ -199,7 +199,7 @@ pk= id which will filter out the hackathon and user will be fetched by Auth Toke
 
 #### Submit Submission for a Particular Hackathons
 
-```http
+```
   POST /hackathons/<int:pk>/submit/
 ```
 
@@ -221,7 +221,7 @@ Once a Submission form is successfully submit(saved) you can not submit again
 
 #### View Submission for a Particular Hackathons
 
-```http
+```
   GET /hackathons/<int:pk>/submit/
 ```
 
@@ -233,7 +233,7 @@ Once a Submission form is successfully submit(saved) you can not submit again
 
 #### View All Submission for all hackathons
 
-```http
+```
   GET hackathons/listallsubmssions/
 ```
 
