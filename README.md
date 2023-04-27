@@ -247,7 +247,7 @@ Once a Submission form is successfully submit(saved) you can not submit again
 To downlaod this project
 
 ```bash
-  git clone repo-link
+  git clone https://github.com/rishabhkesarwanii/hackathon_api.git
 ```
 
 Create a Virtualenv
@@ -256,17 +256,9 @@ Create a Virtualenv
   Windows: py -m venv env
 ```
 
-Create a Virtualenv
-```bash
-  Linux/macOS: python3 -m venv env
-
-  Windows: py -m venv env
-```
-
 Start Virtualenv
 ```bash
   Linux/macOS: source env/bin/activate
-
   Windows: .\env\Scripts\activate
 ```
 
@@ -300,7 +292,7 @@ Runserver Locally
 
 Postman Collections are a group of saved requests. Every request you send in Postman appears under the History tab of the sidebar. On a small scale, reusing requests through the history section is convenient.
 ```url
-  url
+  https://github.com/rishabhkesarwanii/hackathon_api/blob/master/Hackathon.postman_collection.json
 ```
 
 Import postman collection file in postman from root folder of project or downlaod from above 
@@ -323,42 +315,41 @@ Install Virtualenv
 ## Screenshots
 
 #### Set Authorization token and BASE_RL in POSTMAN
-![Postman Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/postman%20sc1.png)
 
-![Postman Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Postman%20sc2.png)
 
 #### Register 
-![Postman Register Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Register Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Register.png)
 
 #### Login 
-![Postman Login Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Login Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Login.png)
 
 #### Create Hackathon 
-![Postman Create Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Create Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Createhacka.png)
 
 #### Edit Hackathon 
 ![Postman Edit Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 #### List One Hackathon 
-![Postman List One Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman List One Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Listonehacka.png)
 
 #### List All Hackathon 
-![Postman List All Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman List All Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Listallhacka.png)
 
 #### Register Hackathon 
-![Postman Register Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Register Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Register%20hacka.png)
 
 #### Registered Hackathon 
-![Postman Registered Hackathon Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Registered Hackathon Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Registered%20hacka.png)
 
 #### Registered Hackathon Submission
-![Postman Registered Hackathon Submission Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman Registered Hackathon Submission Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/registeredhackasub.png)
 
 #### List one Submission
-![Postman List one Submission Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Postman List one Submission Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Listonesub.png)
 
-#### Hackathon Submission
-![Postman List All Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+#### List All Submission for All Hackathons(registered)
+![Postman List All Screenshot](https://github.com/rishabhkesarwanii/hackathon_api/blob/master/pictures/Listallsub.png)
 
 
