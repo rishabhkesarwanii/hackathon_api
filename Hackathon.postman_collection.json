@@ -137,12 +137,6 @@
 									"key": "reward_prize",
 									"value": "17890.00",
 									"type": "default"
-								},
-								{
-									"key": "",
-									"type": "file",
-									"src": [],
-									"disabled": true
 								}
 							]
 						},
@@ -170,12 +164,12 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "absolute url tested",
+									"value": "edited hacka",
 									"type": "default"
 								},
 								{
 									"key": "description",
-									"value": "new test new newDas",
+									"value": "new test new newDash",
 									"type": "default"
 								},
 								{
@@ -217,17 +211,13 @@
 							]
 						},
 						"url": {
-							"raw": "127.0.0.1:8000/hackathons/8/update/",
+							"raw": "{{BASE_URL}}/hackathons/2/update/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
-								"8",
+								"2",
 								"update",
 								""
 							]
@@ -241,13 +231,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/hackathons/8/",
+							"raw": "{{BASE_URL}}/hackathons/1/",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"hackathons",
-								"8",
+								"1",
 								""
 							]
 						}
@@ -302,18 +292,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/hackathons/8/register/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/hackathons/1/register/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
-								"8",
+								"1",
 								"register",
 								""
 							]
@@ -322,20 +307,15 @@
 					"response": []
 				},
 				{
-					"name": "Registred Hackathon",
+					"name": "Registered Hackathon",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/hackathons/registered/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/hackathons/registered/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
 								"registered",
@@ -346,7 +326,7 @@
 					"response": []
 				},
 				{
-					"name": "Submission Hackathon",
+					"name": "Registered Hackathon Submission",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -390,18 +370,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/hackathons/8/submit/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/hackathons/1/submit/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
-								"8",
+								"1",
 								"submit",
 								""
 							]
@@ -411,64 +386,17 @@
 				},
 				{
 					"name": "List one Submission",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "submission_name",
-									"value": "file sub with bool",
-									"type": "default"
-								},
-								{
-									"key": "submission_summary",
-									"value": "fvidfnvj",
-									"contentType": "",
-									"type": "default"
-								},
-								{
-									"key": "submission_image",
-									"contentType": "",
-									"type": "file",
-									"src": "/home/rishabh/Pictures/Screenshots/Screenshot from 2023-04-18 15-55-30.png"
-								},
-								{
-									"key": "submission_link",
-									"value": "www.google.com",
-									"type": "default",
-									"disabled": true
-								},
-								{
-									"key": "submission_file",
-									"type": "file",
-									"src": "/home/rishabh/Documents/Resume/Rishabh Kesarwani .pdf",
-									"disabled": true
-								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/hackathons/7/submit/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/hackathons/1/submit/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
-								"7",
+								"1",
 								"submit",
 								""
 							]
@@ -482,15 +410,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/hackathons/listallsubmssions/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/hackathons/listallsubmssions/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{BASE_URL}}"
 							],
-							"port": "8000",
 							"path": [
 								"hackathons",
 								"listallsubmssions",
@@ -541,7 +464,7 @@
 	"variable": [
 		{
 			"key": "TOKEN",
-			"value": "110afbd9229308304b82ab93b80a19d1bd7b074181acc728ce90453164033a35",
+			"value": "",
 			"type": "default"
 		},
 		{
